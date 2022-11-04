@@ -709,7 +709,7 @@ ANI_INLINE_FUNCTION tANI_U8 * pal_set_U16(tANI_U8 *ptr, tANI_U16 value)
     be valid. Caller to verify.
 
   -------------------------------------------------------------------------------*/
-ANI_INLINE_FUNCTION tANI_U8 * pal_get_U16(tANI_U8 *ptr, tANI_U8 *pValue)
+ANI_INLINE_FUNCTION tANI_U8 * pal_get_U16(tANI_U8 *ptr, tANI_U16 *pValue)
 {
 #if defined( ANI_BIG_BYTE_ENDIAN )
     *pValue = (((tANI_U16) (*ptr << 8)) |
@@ -740,7 +740,7 @@ ANI_INLINE_FUNCTION tANI_U8 * pal_get_U16(tANI_U8 *ptr, tANI_U8 *pValue)
     be valid. Caller to verify.
 
   -------------------------------------------------------------------------------*/
-ANI_INLINE_FUNCTION tANI_U8 * pal_get_U32(tANI_U8 *ptr, tANI_U8 *pValue)
+ANI_INLINE_FUNCTION tANI_U8 * pal_get_U32(tANI_U8 *ptr, tANI_U32 *pValue)
 {
 #if defined( ANI_BIG_BYTE_ENDIAN )
     *pValue = ( (tANI_U32)(*(ptr) << 24) |
