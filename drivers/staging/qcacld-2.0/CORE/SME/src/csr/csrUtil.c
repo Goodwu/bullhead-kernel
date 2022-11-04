@@ -1255,7 +1255,7 @@ static tSirMacCapabilityInfo csrGetBssCapabilities( tSirBssDescription *pSirBssD
     tSirMacCapabilityInfo dot11Caps;
 
     //tSirMacCapabilityInfo is 16-bit
-    pal_get_U16( (tANI_U8 *)&pSirBssDesc->capabilityInfo, (tANI_U16 *)&dot11Caps );
+    pal_get_U16( (tANI_U8 *)&pSirBssDesc->capabilityInfo, (tANI_U8 *)&dot11Caps );
 
     return( dot11Caps );
 }
@@ -5486,7 +5486,7 @@ tSirResultCodes csrGetDisassocRspStatusCode( tSirSmeDisassocRsp *pSmeDisassocRsp
     pBuffer += (sizeof(tANI_U16) + sizeof(tANI_U16) + sizeof(tSirMacAddr));
     /* tSirResultCodes is an enum, assuming is 32bit
        If we cannot make this assumption, use copy memory */
-    pal_get_U32( pBuffer, &ret );
+    pal_get_U32( pBuffer, (tANI_U8*)&ret );
 
     return( ( tSirResultCodes )ret );
 }
@@ -5500,7 +5500,7 @@ tSirResultCodes csrGetDeAuthRspStatusCode( tSirSmeDeauthRsp *pSmeRsp )
     pBuffer += (sizeof(tANI_U16) + sizeof(tANI_U16) + sizeof(tANI_U8) +sizeof(tANI_U16));
     /* tSirResultCodes is an enum, assuming is 32bit
        If we cannot make this assumption, use copy memory */
-    pal_get_U32( pBuffer, &ret );
+    pal_get_U32( pBuffer, (tANI_U8*)&ret );
 
     return( ( tSirResultCodes )ret );
 }

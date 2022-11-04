@@ -1520,7 +1520,7 @@ limSendSmeDisassocNtf(tpAniSirGlobal pMac,
     tANI_U8                     *pBuf;
     tSirSmeDisassocRsp      *pSirSmeDisassocRsp;
     tSirSmeDisassocInd      *pSirSmeDisassocInd;
-    tANI_U32 *pMsg;
+    tANI_U8 *pMsg;
     bool failure = false;
 
     limLog(pMac, LOG1, FL("Disassoc Ntf with trigger : %d"
@@ -1584,7 +1584,7 @@ limSendSmeDisassocNtf(tpAniSirGlobal pMac,
             limDiagEventReport(pMac, WLAN_PE_DIAG_DISASSOC_RSP_EVENT,
                                       psessionEntry, (tANI_U16)reasonCode, 0);
 #endif
-            pMsg = (tANI_U32*) pSirSmeDisassocRsp;
+            pMsg = (tANI_U8*) pSirSmeDisassocRsp;
             break;
 
         default:
@@ -1628,7 +1628,7 @@ limSendSmeDisassocNtf(tpAniSirGlobal pMac,
             limDiagEventReport(pMac, WLAN_PE_DIAG_DISASSOC_IND_EVENT,
                                               psessionEntry, (tANI_U16)reasonCode, 0);
 #endif
-            pMsg = (tANI_U32*) pSirSmeDisassocInd;
+            pMsg = (tANI_U8*) pSirSmeDisassocInd;
 
             break;
     }
@@ -1985,7 +1985,7 @@ limSendSmeDeauthNtf(tpAniSirGlobal pMac, tSirMacAddr peerMacAddr, tSirResultCode
     tSirSmeDeauthInd    *pSirSmeDeauthInd;
     tpPESession         psessionEntry;
     tANI_U8             sessionId;
-    tANI_U32            *pMsg;
+    tANI_U8             *pMsg;
 
     psessionEntry = peFindSessionByBssid(pMac,peerMacAddr,&sessionId);
     switch (deauthTrigger)
@@ -2023,7 +2023,7 @@ limSendSmeDeauthNtf(tpAniSirGlobal pMac, tSirMacAddr peerMacAddr, tSirResultCode
             limDiagEventReport(pMac, WLAN_PE_DIAG_DEAUTH_RSP_EVENT,
                                       psessionEntry, 0, (tANI_U16)reasonCode);
 #endif
-            pMsg = (tANI_U32*)pSirSmeDeauthRsp;
+            pMsg = (tANI_U8*)pSirSmeDeauthRsp;
 
             break;
 
@@ -2072,7 +2072,7 @@ limSendSmeDeauthNtf(tpAniSirGlobal pMac, tSirMacAddr peerMacAddr, tSirResultCode
             limDiagEventReport(pMac, WLAN_PE_DIAG_DEAUTH_IND_EVENT,
                                         psessionEntry, 0, (tANI_U16)reasonCode);
 #endif //FEATURE_WLAN_DIAG_SUPPORT
-            pMsg = (tANI_U32*)pSirSmeDeauthInd;
+            pMsg = (tANI_U8*)pSirSmeDeauthInd;
 
             break;
     }

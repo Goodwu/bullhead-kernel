@@ -18904,9 +18904,9 @@ static void csrSerDesUnpackDiassocRsp(tANI_U8 *pBuf, tSirSmeDisassocRsp *pRsp)
    {
       pBuf += 4; //skip type and length
       pRsp->sessionId  = *pBuf++;
-      pal_get_U16( pBuf, (tANI_U16 *)&pRsp->transactionId );
+      pal_get_U16( pBuf, (tANI_U8 *)&pRsp->transactionId );
       pBuf += 2;
-      pal_get_U32( pBuf, (tANI_U32 *)&pRsp->statusCode );
+      pal_get_U32( pBuf, (tANI_U8 *)&pRsp->statusCode );
       pBuf += 4;
       vos_mem_copy(pRsp->peerMacAddr, pBuf, 6);
    }

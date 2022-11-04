@@ -2804,7 +2804,7 @@ limProcessMlmDisassocReqNtf(tpAniSirGlobal pMac, eHalStatus suspendStatus, tANI_
     tpPESession              psessionEntry;
     extern tANI_BOOLEAN     sendDisassocFrame;
     tSirSmeDisassocRsp      *pSirSmeDisassocRsp;
-    tANI_U32                *pMsg;
+    tANI_U8                 *pMsg;
     tANI_U8                 *pBuf;
 
     if(eHAL_STATUS_SUCCESS != suspendStatus)
@@ -2869,7 +2869,7 @@ limProcessMlmDisassocReqNtf(tpAniSirGlobal pMac, eHalStatus suspendStatus, tANI_
                     pBuf = (tANI_U8 *) pSirSmeDisassocRsp->peerMacAddr;
                     vos_mem_copy( pBuf, pMlmDisassocReq->peerMacAddr,
                         sizeof(tSirMacAddr));
-                    pMsg = (tANI_U32*) pSirSmeDisassocRsp;
+                    pMsg = (tANI_U8*) pSirSmeDisassocRsp;
 
                     limSendSmeDisassocDeauthNtf(pMac, eHAL_STATUS_SUCCESS,
                                                  (tANI_U32*) pMsg);
