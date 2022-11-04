@@ -4700,8 +4700,8 @@ static char *i_trim(char *str)
 
    /* Find the first non white-space*/
    for (ptr = str; i_isspace(*ptr); ptr++);
-      if (*ptr == '\0')
-         return str;
+   if (*ptr == '\0')
+      return str;
 
    /* This is the new start of the string*/
    str = ptr;
@@ -4710,7 +4710,7 @@ static char *i_trim(char *str)
    ptr += strlen(ptr) - 1;
    for (; ptr != str && i_isspace(*ptr); ptr--);
       /* Null terminate the following character */
-      ptr[1] = '\0';
+   ptr[1] = '\0';
 
    return str;
 }
@@ -6551,6 +6551,7 @@ v_BOOL_t hdd_update_config_dat( hdd_context_t *pHddCtx )
 #if defined WLAN_FEATURE_VOWIFI
     if (ccmCfgSetInt(pHddCtx->hHal, WNI_CFG_MCAST_BCAST_FILTER_SETTING, pConfig->mcastBcastFilterSetting,
                      NULL, eANI_BOOLEAN_FALSE)==eHAL_STATUS_FAILURE)
+    {
 #endif
 
      if (ccmCfgSetInt(pHddCtx->hHal, WNI_CFG_SINGLE_TID_RC, pConfig->bSingleTidRc,
@@ -6559,6 +6560,9 @@ v_BOOL_t hdd_update_config_dat( hdd_context_t *pHddCtx )
         fStatus = FALSE;
         hddLog(LOGE,"Failure: Could not pass on WNI_CFG_SINGLE_TID_RC configuration info to CCM");
      }
+#if defined WLAN_FEATURE_VOWIFI
+    }
+#endif
 
      if (ccmCfgSetInt(pHddCtx->hHal, WNI_CFG_TELE_BCN_WAKEUP_EN, pConfig->teleBcnWakeupEn,
                       NULL, eANI_BOOLEAN_FALSE)==eHAL_STATUS_FAILURE)

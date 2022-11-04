@@ -9324,7 +9324,7 @@ void hdd_full_pwr_cbk(void *callbackContext, eHalStatus status)
    hdd_context_t *pHddCtx = (hdd_context_t*)callbackContext;
 
    hddLog(VOS_TRACE_LEVEL_INFO_HIGH,"HDD full Power callback status = %d", status);
-   if(&pHddCtx->full_pwr_comp_var)
+   if(pHddCtx)
    {
       complete(&pHddCtx->full_pwr_comp_var);
    }
@@ -10030,7 +10030,7 @@ static hdd_adapter_t* hdd_alloc_station_adapter( hdd_context_t *pHddCtx, tSirMac
          pWlanDev->features |= NETIF_F_HW_CSUM;
       else if (pHddCtx->cfg_ini->enableTCPChkSumOffld)
          pWlanDev->features |= NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
-         pWlanDev->features |= NETIF_F_RXCSUM;
+      pWlanDev->features |= NETIF_F_RXCSUM;
       hdd_set_station_ops( pAdapter->dev );
 
       pWlanDev->destructor = free_netdev;
@@ -13942,8 +13942,8 @@ static void hdd_state_info_dump(char **buf_ptr, uint16_t *size)
 		if (adapter->dev)
 			len += scnprintf(buf + len, *size - len,
 				"\n device name: %s", adapter->dev->name);
-			len += scnprintf(buf + len, *size - len,
-				"\n device_mode: %d", adapter->device_mode);
+		len += scnprintf(buf + len, *size - len,
+			"\n device_mode: %d", adapter->device_mode);
 		switch (adapter->device_mode) {
 		case WLAN_HDD_INFRA_STATION:
 		case WLAN_HDD_P2P_CLIENT:

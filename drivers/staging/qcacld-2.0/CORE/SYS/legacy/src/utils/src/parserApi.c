@@ -62,6 +62,7 @@
 #define DOT11F_RSN_CSE_WEP104 0x05
 #define DOT11F_RSN_CSE_AES_CMAC 0x06
 
+#if 0
 static const tANI_U8 sirRSNOui[][ DOT11F_RSN_OUI_SIZE ] = {
     { 0x00, 0x0F, 0xAC, 0x00 }, /* group cipher */
     { 0x00, 0x0F, 0xAC, 0x01 }, /* WEP-40 or RSN */
@@ -75,6 +76,7 @@ static const tANI_U8 sirRSNOui[][ DOT11F_RSN_OUI_SIZE ] = {
     /* RSN-8021X-SHA256 (authentication type) */
     { 0x00, 0x0F, 0xAC, 0x05 }
 };
+#endif
 
 
 ////////////////////////////////////////////////////////////////////////
