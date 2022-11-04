@@ -178,7 +178,7 @@ void lim_check_sta_in_pe_entries(tpAniSirGlobal pMac, tpSirMacMgmtHdr pHdr)
 
     for(i = 0; i < pMac->lim.maxBssId; i++)
     {
-        if ((&pMac->lim.gpSession[i] != NULL) &&
+        if (
             (pMac->lim.gpSession[i].valid) &&
             (pMac->lim.gpSession[i].pePersona == VOS_STA_SAP_MODE)) {
 

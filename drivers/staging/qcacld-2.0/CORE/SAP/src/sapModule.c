@@ -1329,7 +1329,7 @@ WLANSAP_ClearACL
         return VOS_STATUS_E_RESOURCES;
     }
 
-    if (pSapCtx->denyMacList != NULL)
+    if (1)
     {
         for (i = 0; i < (pSapCtx->nDenyMac-1); i++)
         {
@@ -1340,7 +1340,7 @@ WLANSAP_ClearACL
     sapPrintACL(pSapCtx->denyMacList, pSapCtx->nDenyMac);
     pSapCtx->nDenyMac  = 0;
 
-    if (pSapCtx->acceptMacList!=NULL)
+    if (1)
     {
         for (i = 0; i < (pSapCtx->nAcceptMac-1); i++)
         {
