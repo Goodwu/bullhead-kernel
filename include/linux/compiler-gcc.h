@@ -209,6 +209,14 @@
 #endif
 #endif /* CONFIG_ARCH_USE_BUILTIN_BSWAP */
 
+#if GCC_VERSION >= 90000
+#pragma GCC diagnostic ignored "-Waddress-of-packed-member"
+#endif
+
+#if GCC_VERSION >= 110000
+#pragma GCC diagnostic ignored "-Wformat-overflow"
+#endif
+
 #endif	/* gcc version >= 40000 specific checks */
 
 #if !defined(__noclone)

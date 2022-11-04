@@ -360,7 +360,7 @@ limProcessAssocRspFrame(tpAniSirGlobal pMac, tANI_U8 *pRxPacketInfo, tANI_U8 sub
         limLog(pMac, LOGE,
                FL("LFR3: Reassoc response packet header is NULL"));
         return;
-    } else if ( pHdr->sa == NULL) {
+    } else if ( 0 ) {
         limLog(pMac, LOGE,
                FL("LFR3: Reassoc response packet source address is NULL"));
         return;
